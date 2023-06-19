@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bcknodl1cv0xk"]
+
+[ext_resource type="Resource" uid="uid://bduv7emps8w1p" path="res://resources/item_resources/material_category.tres" id="1_ahdou"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_32ydu"]
+
+[resource]
+script = ExtResource("2_32ydu")
+display_name = "Mud Bricks"
+name = "mud_brick"
+description = ""
+unlocked = false
+auto_unlock = true
+amount = 0
+category = ExtResource("1_ahdou")
+upkeep = null
+tags = {}

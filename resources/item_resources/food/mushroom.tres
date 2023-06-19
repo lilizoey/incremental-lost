@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://euliv8t7okig"]
+
+[ext_resource type="Resource" uid="uid://bxmfnu1sy7o61" path="res://resources/item_resources/food_category.tres" id="1_x1iba"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_pl2w3"]
+
+[resource]
+script = ExtResource("2_pl2w3")
+display_name = "Mushrooms"
+name = "mushroom"
+description = ""
+unlocked = false
+auto_unlock = true
+amount = 0
+category = ExtResource("1_x1iba")
+upkeep = null
+tags = {}

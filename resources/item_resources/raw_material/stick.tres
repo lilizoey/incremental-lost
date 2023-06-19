@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://4ly57y288fns"]
+
+[ext_resource type="Resource" uid="uid://b660hgyxitba6" path="res://resources/item_resources/raw_material_category.tres" id="1_nqwwj"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_rwuyw"]
+
+[resource]
+script = ExtResource("2_rwuyw")
+display_name = "Sticks"
+name = "stick"
+description = ""
+unlocked = false
+auto_unlock = true
+amount = 0.0
+category = ExtResource("1_nqwwj")
+upkeep = Array[Resource("res://resources/upkeep.gd")]([])
+tags = {}

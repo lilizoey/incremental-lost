@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://blv46ckppvmle"]
+
+[ext_resource type="Script" path="res://widgets/manual_work.gd" id="1_fds0x"]
+
+[node name="ManualWork" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"WorkContainer"
+script = ExtResource("1_fds0x")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"WorkButton"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"WorkProgress"
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"WorkLabel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

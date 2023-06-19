@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cmt0mx3b48boj"]
+
+[ext_resource type="Script" path="res://effects/food_upkeep.gd" id="1_3vhw5"]
+
+[resource]
+script = ExtResource("1_3vhw5")

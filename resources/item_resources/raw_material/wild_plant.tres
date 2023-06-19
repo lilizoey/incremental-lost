@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bq5unia4u6r6t"]
+
+[ext_resource type="Resource" uid="uid://b660hgyxitba6" path="res://resources/item_resources/raw_material_category.tres" id="1_2f0yw"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_dedme"]
+
+[resource]
+script = ExtResource("2_dedme")
+display_name = "Wild Plants"
+name = "wild_plant"
+description = ""
+unlocked = false
+auto_unlock = true
+amount = 0
+category = ExtResource("1_2f0yw")
+upkeep = null
+tags = {}

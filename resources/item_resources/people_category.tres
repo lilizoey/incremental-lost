@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceCategory" load_steps=2 format=3 uid="uid://eliabnfpb1ur"]
+
+[ext_resource type="Script" path="res://resources/item_resources/resource_category.gd" id="1_8kvwq"]
+
+[resource]
+script = ExtResource("1_8kvwq")
+display_name = "People"
+internal_name = "people"

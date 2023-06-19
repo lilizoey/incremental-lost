@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://vvh4qh31fwkf"]
+
+[ext_resource type="Script" path="res://time/time_progress.gd" id="1_kvylw"]
+[ext_resource type="Script" path="res://time/day_counter.gd" id="1_vgbjy"]
+
+[node name="TimeTracker" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 10.0
+theme_type_variation = &"TimeProgress"
+show_percentage = false
+script = ExtResource("1_kvylw")
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="Days" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Days"
+vertical_alignment = 1
+
+[node name="DayCounter" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("1_vgbjy")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2

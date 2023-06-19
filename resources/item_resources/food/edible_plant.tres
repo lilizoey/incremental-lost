@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://d31pnrugxmnaj"]
+
+[ext_resource type="Resource" uid="uid://bxmfnu1sy7o61" path="res://resources/item_resources/food_category.tres" id="1_2611a"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_hkadn"]
+
+[resource]
+script = ExtResource("2_hkadn")
+display_name = "Edible Plants"
+name = "edible_plant"
+description = ""
+unlocked = false
+auto_unlock = true
+amount = 0
+category = ExtResource("1_2611a")
+upkeep = null
+tags = {}

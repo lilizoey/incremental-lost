@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceCategory" load_steps=2 format=3 uid="uid://bw55ecitmcvbu"]
+
+[ext_resource type="Script" path="res://resources/item_resources/resource_category.gd" id="1_aqehn"]
+
+[resource]
+script = ExtResource("1_aqehn")
+display_name = "Refuse"
+internal_name = "refuse"

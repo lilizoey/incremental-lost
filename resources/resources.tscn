@@ -1,0 +1,30 @@
+[gd_scene load_steps=20 format=3 uid="uid://dp35b46ter3j8"]
+
+[ext_resource type="Script" path="res://resources/resources.gd" id="1_js2jy"]
+[ext_resource type="Resource" uid="uid://bxmfnu1sy7o61" path="res://resources/item_resources/food_category.tres" id="2_ajwkc"]
+[ext_resource type="Resource" uid="uid://cphjwxbo1j4h" path="res://resources/item_resources/raw_material/log.tres" id="2_nwqfe"]
+[ext_resource type="Resource" uid="uid://c22vlrlhfrqw8" path="res://resources/item_resources/raw_material/stone.tres" id="3_8nqdy"]
+[ext_resource type="Resource" uid="uid://bduv7emps8w1p" path="res://resources/item_resources/material_category.tres" id="3_at01o"]
+[ext_resource type="Resource" uid="uid://eliabnfpb1ur" path="res://resources/item_resources/people_category.tres" id="4_b1atg"]
+[ext_resource type="Resource" uid="uid://ot4n0fkmy7qq" path="res://resources/item_resources/food/herb.tres" id="4_e5y1j"]
+[ext_resource type="Resource" uid="uid://b660hgyxitba6" path="res://resources/item_resources/raw_material_category.tres" id="5_dvw5b"]
+[ext_resource type="Resource" uid="uid://euliv8t7okig" path="res://resources/item_resources/food/mushroom.tres" id="5_misqh"]
+[ext_resource type="Resource" uid="uid://bq5unia4u6r6t" path="res://resources/item_resources/raw_material/wild_plant.tres" id="6_34c8m"]
+[ext_resource type="Resource" uid="uid://bw55ecitmcvbu" path="res://resources/item_resources/refuse_category.tres" id="6_ikt6y"]
+[ext_resource type="Resource" uid="uid://d31pnrugxmnaj" path="res://resources/item_resources/food/edible_plant.tres" id="7_n6b8a"]
+[ext_resource type="Resource" uid="uid://ehsgljyqi8n4" path="res://resources/item_resources/refuse/weed.tres" id="8_wcqtj"]
+[ext_resource type="Resource" uid="uid://dj6bqls5wyddj" path="res://resources/item_resources/raw_material/clay.tres" id="9_075kj"]
+[ext_resource type="Resource" uid="uid://bcknodl1cv0xk" path="res://resources/item_resources/material/mud_brick.tres" id="10_2g7fu"]
+[ext_resource type="Resource" uid="uid://d0u66kepk2xi7" path="res://resources/item_resources/material/brick.tres" id="11_3xtvo"]
+[ext_resource type="Resource" uid="uid://bh8pxfl65ept" path="res://resources/item_resources/food/packaged_meal.tres" id="12_n2rgo"]
+[ext_resource type="Resource" uid="uid://dk8agbrvossvi" path="res://resources/item_resources/people/human.tres" id="13_uvcta"]
+[ext_resource type="Resource" uid="uid://4ly57y288fns" path="res://resources/item_resources/raw_material/stick.tres" id="14_kasmr"]
+
+[node name="Resources" type="Node"]
+script = ExtResource("1_js2jy")
+categories = Array[Resource("res://resources/item_resources/resource_category.gd")]([ExtResource("2_ajwkc"), ExtResource("3_at01o"), ExtResource("4_b1atg"), ExtResource("5_dvw5b"), ExtResource("6_ikt6y")])
+category_food = Array[Object]([ExtResource("7_n6b8a"), ExtResource("4_e5y1j"), ExtResource("5_misqh"), ExtResource("12_n2rgo")])
+category_material = Array[Object]([ExtResource("11_3xtvo"), ExtResource("10_2g7fu")])
+category_people = Array[Object]([ExtResource("13_uvcta")])
+category_raw_material = Array[Object]([ExtResource("9_075kj"), ExtResource("2_nwqfe"), ExtResource("14_kasmr"), ExtResource("3_8nqdy"), ExtResource("6_34c8m")])
+category_refuse = Array[Object]([ExtResource("8_wcqtj")])

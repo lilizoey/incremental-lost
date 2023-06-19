@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://chdrqhxr3h2cn"]
+
+[ext_resource type="Script" path="res://widgets/resource_display/resource_category_list.gd" id="1_riq23"]
+[ext_resource type="PackedScene" uid="uid://bv454pppgbrtq" path="res://widgets/resource_display/resource_count.tscn" id="2_4xxcq"]
+
+[node name="ResourceCategory" type="VBoxContainer" node_paths=PackedStringArray("collapse_button", "name_label", "effect_label", "resource_list")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_riq23")
+collapse_button = NodePath("ResourceCategoryLabel/CollapseButton")
+name_label = NodePath("ResourceCategoryLabel/Name")
+effect_label = NodePath("ResourceCategoryLabel/Effect")
+resource_list = NodePath("Resources/ResourceList")
+
+[node name="ResourceCategoryLabel" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CollapseButton" type="Button" parent="ResourceCategoryLabel"]
+custom_minimum_size = Vector2(22.5, 0)
+layout_mode = 2
+theme_type_variation = &"CollapseButton"
+toggle_mode = true
+button_pressed = true
+
+[node name="Name" type="Label" parent="ResourceCategoryLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Category Name"
+vertical_alignment = 1
+
+[node name="Effect" type="Label" parent="ResourceCategoryLabel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"EffectLabelPositive"
+text = "+10.2"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Resources" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"Sublist"
+
+[node name="ResourceList" type="VBoxContainer" parent="Resources"]
+layout_mode = 2
+
+[node name="PreviewResource" parent="Resources/ResourceList" instance=ExtResource("2_4xxcq")]
+layout_mode = 2
+
+[node name="Name" parent="Resources/ResourceList/PreviewResource" index="0"]
+text = "Some Resource"
+
+[node name="Amount" parent="Resources/ResourceList/PreviewResource" index="1"]
+text = "100
+"
+
+[node name="PreviewResource2" parent="Resources/ResourceList" instance=ExtResource("2_4xxcq")]
+layout_mode = 2
+
+[node name="Name" parent="Resources/ResourceList/PreviewResource2" index="0"]
+text = "Some Resource"
+
+[node name="Amount" parent="Resources/ResourceList/PreviewResource2" index="1"]
+text = "100
+"
+
+[node name="PreviewResource3" parent="Resources/ResourceList" instance=ExtResource("2_4xxcq")]
+layout_mode = 2
+
+[node name="Name" parent="Resources/ResourceList/PreviewResource3" index="0"]
+text = "Some Resource"
+
+[node name="Amount" parent="Resources/ResourceList/PreviewResource3" index="1"]
+text = "100
+"
+
+[editable path="Resources/ResourceList/PreviewResource"]
+[editable path="Resources/ResourceList/PreviewResource2"]
+[editable path="Resources/ResourceList/PreviewResource3"]

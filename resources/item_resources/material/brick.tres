@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://d0u66kepk2xi7"]
+
+[ext_resource type="Resource" uid="uid://bduv7emps8w1p" path="res://resources/item_resources/material_category.tres" id="1_fu1p7"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_u5o16"]
+
+[resource]
+script = ExtResource("2_u5o16")
+display_name = "Bricks"
+name = "brick"
+description = ""
+unlocked = false
+auto_unlock = true
+amount = 0
+category = ExtResource("1_fu1p7")
+upkeep = null
+tags = {}

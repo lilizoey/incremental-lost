@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://c22vlrlhfrqw8"]
+
+[ext_resource type="Resource" uid="uid://b660hgyxitba6" path="res://resources/item_resources/raw_material_category.tres" id="1_pg4e1"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_cbua5"]
+
+[resource]
+script = ExtResource("2_cbua5")
+display_name = "Stone"
+name = "stone"
+description = ""
+unlocked = false
+auto_unlock = true
+amount = 0
+category = ExtResource("1_pg4e1")
+upkeep = null
+tags = {}

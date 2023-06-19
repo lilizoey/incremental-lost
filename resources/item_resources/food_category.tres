@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceCategory" load_steps=2 format=3 uid="uid://bxmfnu1sy7o61"]
+
+[ext_resource type="Script" path="res://resources/item_resources/resource_category.gd" id="1_ylpdn"]
+
+[resource]
+script = ExtResource("1_ylpdn")
+display_name = "Food"
+internal_name = "food"
