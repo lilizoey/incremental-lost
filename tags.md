@@ -23,3 +23,10 @@ Has no effect if the tag [`eats`](#`eats`) is not also present.
 #### Format:
 key: `food_mod`
 value: float
+
+### `requires_heat`
+Consumes heating for each resource. Value is how much heating is consumed.
+
+#### Format:
+key: `requires_heat`
+value: float

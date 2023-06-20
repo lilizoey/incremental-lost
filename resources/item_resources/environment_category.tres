@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ResourceCategory" load_steps=2 format=3 uid="uid://ccyo5rlayuovo"]
+
+[ext_resource type="Script" path="res://resources/item_resources/resource_category.gd" id="1_8kmfo"]
+
+[resource]
+script = ExtResource("1_8kmfo")
+display_name = "Environment"
+internal_name = "environment"

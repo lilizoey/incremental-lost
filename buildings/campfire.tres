@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="Building" load_steps=20 format=3 uid="uid://dywjaftbqqrw6"]
+
+[ext_resource type="Resource" uid="uid://xbfvd57sey4x" path="res://resources/item_resources/environment/heat.tres" id="1_aibfn"]
+[ext_resource type="Script" path="res://buildings/building.gd" id="1_vc2eq"]
+[ext_resource type="Script" path="res://widgets/weighted_result.gd" id="2_483vr"]
+[ext_resource type="Script" path="res://costs/cost_amount.gd" id="2_n42ui"]
+[ext_resource type="Script" path="res://requirement/unlock_criteria.gd" id="2_uf1i2"]
+[ext_resource type="Script" path="res://costs/cost.gd" id="3_mkxc1"]
+[ext_resource type="Script" path="res://requirement/at_least.gd" id="3_n7f6x"]
+[ext_resource type="Script" path="res://widgets/weighted_amount.gd" id="3_nwxhc"]
+[ext_resource type="Resource" uid="uid://cphjwxbo1j4h" path="res://resources/item_resources/raw_material/log.tres" id="3_y36y8"]
+[ext_resource type="Script" path="res://resources/resource_selecting/specific_amount.gd" id="4_hgomq"]
+[ext_resource type="Script" path="res://effects/building_effects/provide_resource_daily.gd" id="4_ib13v"]
+
+[sub_resource type="Resource" id="Resource_4q6mw"]
+script = ExtResource("2_n42ui")
+item = ExtResource("3_y36y8")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_85ok8"]
+script = ExtResource("3_mkxc1")
+resource_amounts = Array[ExtResource("2_n42ui")]([SubResource("Resource_4q6mw")])
+
+[sub_resource type="Resource" id="Resource_hd3vs"]
+script = ExtResource("3_nwxhc")
+weight = 1
+amount_min = 10
+amount_max = 10
+
+[sub_resource type="Resource" id="Resource_h7mn8"]
+script = ExtResource("2_483vr")
+resource = ExtResource("1_aibfn")
+weighted = Array[ExtResource("3_nwxhc")]([SubResource("Resource_hd3vs")])
+
+[sub_resource type="Resource" id="Resource_d3vkp"]
+script = ExtResource("4_ib13v")
+result = SubResource("Resource_h7mn8")
+
+[sub_resource type="Resource" id="Resource_fmgnl"]
+script = ExtResource("4_hgomq")
+resource = ExtResource("3_y36y8")
+
+[sub_resource type="Resource" id="Resource_w2u5m"]
+script = ExtResource("3_n7f6x")
+resource = SubResource("Resource_fmgnl")
+minimum_amount = 1.0
+
+[sub_resource type="Resource" id="Resource_4pcxq"]
+script = ExtResource("2_uf1i2")
+unlock_criteria = SubResource("Resource_w2u5m")
+
+[resource]
+script = ExtResource("1_vc2eq")
+display_name = "Campfire"
+internal_name = "campfire"
+unlock_criteria = SubResource("Resource_4pcxq")
+effects = Array[Resource("res://effects/building_effects/building_effect.gd")]([SubResource("Resource_d3vkp")])
+construction_cost = SubResource("Resource_85ok8")

@@ -71,8 +71,8 @@ func update_effect_display(expected_effect: float):
 	effect_label.visible = true
 	if expected_effect > 0.0:
 		effect_label.text = "+%.2f" % expected_effect
-		effect_label.theme_type_variation = "EffectLabelPositive"
+		effect_label.theme_type_variation = "PositiveLabel"
 	else:
 		effect_label.text = "-%.2f" % abs(expected_effect)
-		effect_label.theme_type_variation = "EffectLabelNegative"
+		effect_label.theme_type_variation = "NegativeLabel"
 

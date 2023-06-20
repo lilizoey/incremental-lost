@@ -8,11 +8,14 @@ script = ExtResource("2_fpxkc")
 display_name = "Humans"
 name = "human"
 description = ""
-unlocked = false
-auto_unlock = true
-amount = 1
+amount = 1.0
 category = ExtResource("1_ufykb")
 tags = {
-"eats": null
+"eats": null,
+"requires_heat": 40.0
 }
-auto_unlock_at = 1.0
+unlocked = false
+auto_unlock = true
+auto_unlock_at = 2.0
+auto_unlock_minimum = true
+has_maximum = false

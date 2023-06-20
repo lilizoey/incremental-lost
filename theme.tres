@@ -6,19 +6,22 @@ bg_color = Color(1, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h4p5"]
 bg_color = Color(0, 1, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1vp7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w54p"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84ls3"]
-bg_color = Color(0.00392157, 0.054902, 0.176471, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uerqb"]
 
 [resource]
 CollapseButton/base_type = &"Button"
 CollapseButton/styles/normal = SubResource("StyleBoxFlat_c0dpr")
 CollapseButton/styles/pressed = SubResource("StyleBoxFlat_6h4p5")
-EffectLabelNegative/base_type = &"Label"
-EffectLabelNegative/colors/font_color = Color(1, 0, 0, 1)
-EffectLabelPositive/base_type = &"Label"
-EffectLabelPositive/colors/font_color = Color(0, 1, 0, 1)
+NegativeLabel/base_type = &"Label"
+NegativeLabel/colors/font_color = Color(1, 0, 0, 1)
+PanelContainerMainViews/base_type = &"PanelContainer"
+PanelContainerMainViews/styles/panel = SubResource("StyleBoxFlat_8w54p")
+PanelContainerWidgets/base_type = &"PanelContainer"
+PanelContainerWidgets/styles/panel = SubResource("StyleBoxFlat_uerqb")
+PositiveLabel/base_type = &"Label"
+PositiveLabel/colors/font_color = Color(0, 1, 0, 1)
 ResourceCounter/base_type = &"HBoxContainer"
 Sublist/base_type = &"MarginContainer"
 Sublist/constants/margin_left = 10
@@ -30,6 +33,3 @@ WorkContainer/constants/margin_left = 5
 WorkContainer/constants/margin_right = 5
 WorkContainer/constants/margin_top = 5
 WorkLabel/base_type = &"Label"
-WorkProgress/base_type = &"ProgressBar"
-WorkProgress/styles/background = SubResource("StyleBoxEmpty_h1vp7")
-WorkProgress/styles/fill = SubResource("StyleBoxFlat_84ls3")

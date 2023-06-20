@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://widgets/manual_work.gd" id="1_fds0x"]
 
-[node name="ManualWork" type="MarginContainer"]
+[node name="ManualWork" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"WorkContainer"
+theme_type_variation = &"PanelContainerWidgets"
 script = ExtResource("1_fds0x")
 
 [node name="Button" type="Button" parent="."]

@@ -1,68 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3efqlrc1xiaf"]
+[gd_scene load_steps=7 format=3 uid="uid://c3efqlrc1xiaf"]
 
 [ext_resource type="Script" path="res://widgets/resource_display/resource_display.gd" id="1_6i7if"]
 [ext_resource type="PackedScene" uid="uid://vvh4qh31fwkf" path="res://time/time_tracker.tscn" id="2_ii5mf"]
-[ext_resource type="PackedScene" uid="uid://blv46ckppvmle" path="res://widgets/manual_work.tscn" id="3_e1us7"]
-[ext_resource type="Resource" uid="uid://4ly57y288fns" path="res://resources/item_resources/raw_material/stick.tres" id="4_v7d1t"]
-[ext_resource type="Script" path="res://widgets/weighted_result.gd" id="5_yyd34"]
-[ext_resource type="Script" path="res://widgets/weighted_amount.gd" id="6_ghnfu"]
-[ext_resource type="Resource" uid="uid://cphjwxbo1j4h" path="res://resources/item_resources/raw_material/log.tres" id="7_euohr"]
-[ext_resource type="Script" path="res://widgets/accumulating_result.gd" id="7_qk1cy"]
+[ext_resource type="PackedScene" uid="uid://ce38n7elyixlo" path="res://widgets/main_view/main_view.tscn" id="3_pftv3"]
+[ext_resource type="Resource" uid="uid://b2h4llshc2y1y" path="res://effects/heat_upkeep.tres" id="6_tface"]
 [ext_resource type="Script" path="res://effects/global_effect_node.gd" id="9_djwk0"]
 [ext_resource type="Resource" uid="uid://cmt0mx3b48boj" path="res://effects/food_upkeep.tres" id="10_rd06a"]
-
-[sub_resource type="Resource" id="Resource_0cpnx"]
-script = ExtResource("6_ghnfu")
-weight = 2
-amount_min = 2
-amount_max = 2
-
-[sub_resource type="Resource" id="Resource_hiw5h"]
-script = ExtResource("6_ghnfu")
-weight = 4
-amount_min = 3
-amount_max = 3
-
-[sub_resource type="Resource" id="Resource_aledk"]
-script = ExtResource("6_ghnfu")
-weight = 4
-amount_min = 4
-amount_max = 4
-
-[sub_resource type="Resource" id="Resource_kd2nl"]
-script = ExtResource("6_ghnfu")
-weight = 2
-amount_min = 5
-amount_max = 5
-
-[sub_resource type="Resource" id="Resource_rnliu"]
-script = ExtResource("5_yyd34")
-resource = ExtResource("4_v7d1t")
-weighted = Array[ExtResource("6_ghnfu")]([SubResource("Resource_0cpnx"), SubResource("Resource_hiw5h"), SubResource("Resource_aledk"), SubResource("Resource_kd2nl")])
-
-[sub_resource type="Resource" id="Resource_mh218"]
-script = ExtResource("6_ghnfu")
-weight = 1
-amount_min = 1
-amount_max = 3
-
-[sub_resource type="Resource" id="Resource_wsudu"]
-script = ExtResource("6_ghnfu")
-weight = 3
-amount_min = 2
-amount_max = 2
-
-[sub_resource type="Resource" id="Resource_kr7ln"]
-script = ExtResource("5_yyd34")
-resource = ExtResource("7_euohr")
-weighted = Array[ExtResource("6_ghnfu")]([SubResource("Resource_mh218"), SubResource("Resource_wsudu")])
-
-[sub_resource type="Resource" id="Resource_6wg54"]
-script = ExtResource("7_qk1cy")
-progress_min = 0.6
-progress_max = 1.4
-target_progress = 5.0
-final_result = SubResource("Resource_kr7ln")
 
 [node name="Main" type="PanelContainer"]
 anchors_preset = 15
@@ -73,43 +16,47 @@ grow_vertical = 2
 
 [node name="Main Split" type="HSplitContainer" parent="."]
 layout_mode = 2
-theme_override_constants/autohide = 0
 
-[node name="Resources" type="ScrollContainer" parent="Main Split"]
+[node name="ResourcesPanel" type="PanelContainer" parent="Main Split"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"PanelContainerMainViews"
 
-[node name="ResourceDisplay" type="VBoxContainer" parent="Main Split/Resources"]
+[node name="Resources" type="ScrollContainer" parent="Main Split/ResourcesPanel"]
+layout_mode = 2
+
+[node name="ResourceDisplay" type="VBoxContainer" parent="Main Split/ResourcesPanel/Resources"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_6i7if")
 
-[node name="MainView" type="MarginContainer" parent="Main Split"]
+[node name="MainView" type="VSplitContainer" parent="Main Split"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main Split/MainView"]
+[node name="TimeTrackerPanel" type="PanelContainer" parent="Main Split/MainView"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerMainViews"
+
+[node name="TimeTracker" parent="Main Split/MainView/TimeTrackerPanel" instance=ExtResource("2_ii5mf")]
 layout_mode = 2
 
-[node name="TimeTracker" parent="Main Split/MainView/VBoxContainer" instance=ExtResource("2_ii5mf")]
-layout_mode = 2
-
-[node name="HFlowContainer" type="HFlowContainer" parent="Main Split/MainView/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Main Split/MainView"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"PanelContainerMainViews"
 
-[node name="GatherWood" parent="Main Split/MainView/VBoxContainer/HFlowContainer" instance=ExtResource("3_e1us7")]
-custom_minimum_size = Vector2(180, 80)
+[node name="MainView" parent="Main Split/MainView/PanelContainer" instance=ExtResource("3_pftv3")]
 layout_mode = 2
-display_name = "Gather Wood"
-results = Array[Resource("res://widgets/result.gd")]([SubResource("Resource_rnliu"), SubResource("Resource_6wg54")])
-percent_of_day_taken = 10.0
-exclusive = true
 
 [node name="GlobalEffects" type="Node" parent="."]
 
-[node name="GlobalEffectNode" type="Node" parent="GlobalEffects"]
+[node name="FoodUpkeep" type="Node" parent="GlobalEffects"]
 script = ExtResource("9_djwk0")
 effect = ExtResource("10_rd06a")
+
+[node name="HeatUpkeep" type="Node" parent="GlobalEffects"]
+script = ExtResource("9_djwk0")
+effect = ExtResource("6_tface")

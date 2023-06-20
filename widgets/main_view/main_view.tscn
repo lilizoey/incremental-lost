@@ -1,0 +1,93 @@
+[gd_scene load_steps=20 format=3 uid="uid://ce38n7elyixlo"]
+
+[ext_resource type="Script" path="res://widgets/main_view/main_view.gd" id="1_e5e3c"]
+[ext_resource type="PackedScene" uid="uid://blv46ckppvmle" path="res://widgets/manual_work.tscn" id="1_rm5tb"]
+[ext_resource type="Resource" uid="uid://4ly57y288fns" path="res://resources/item_resources/raw_material/stick.tres" id="2_7257t"]
+[ext_resource type="Script" path="res://widgets/weighted_result.gd" id="3_sk1ie"]
+[ext_resource type="Script" path="res://widgets/weighted_amount.gd" id="4_4fxn7"]
+[ext_resource type="Resource" uid="uid://cphjwxbo1j4h" path="res://resources/item_resources/raw_material/log.tres" id="5_kx88l"]
+[ext_resource type="Script" path="res://widgets/accumulating_result.gd" id="6_qeoxb"]
+[ext_resource type="Script" path="res://widgets/main_view/buildings.gd" id="8_hb0gw"]
+[ext_resource type="PackedScene" uid="uid://b0vvdpbxyc8xg" path="res://buildings/building_node.tscn" id="9_5ovvh"]
+[ext_resource type="Resource" uid="uid://dywjaftbqqrw6" path="res://buildings/campfire.tres" id="10_clthi"]
+
+[sub_resource type="Resource" id="Resource_0cpnx"]
+script = ExtResource("4_4fxn7")
+weight = 2
+amount_min = 2
+amount_max = 2
+
+[sub_resource type="Resource" id="Resource_hiw5h"]
+script = ExtResource("4_4fxn7")
+weight = 4
+amount_min = 3
+amount_max = 3
+
+[sub_resource type="Resource" id="Resource_aledk"]
+script = ExtResource("4_4fxn7")
+weight = 4
+amount_min = 4
+amount_max = 4
+
+[sub_resource type="Resource" id="Resource_kd2nl"]
+script = ExtResource("4_4fxn7")
+weight = 2
+amount_min = 5
+amount_max = 5
+
+[sub_resource type="Resource" id="Resource_rnliu"]
+script = ExtResource("3_sk1ie")
+resource = ExtResource("2_7257t")
+weighted = Array[ExtResource("4_4fxn7")]([SubResource("Resource_0cpnx"), SubResource("Resource_hiw5h"), SubResource("Resource_aledk"), SubResource("Resource_kd2nl")])
+
+[sub_resource type="Resource" id="Resource_mh218"]
+script = ExtResource("4_4fxn7")
+weight = 1
+amount_min = 1
+amount_max = 3
+
+[sub_resource type="Resource" id="Resource_wsudu"]
+script = ExtResource("4_4fxn7")
+weight = 3
+amount_min = 2
+amount_max = 2
+
+[sub_resource type="Resource" id="Resource_kr7ln"]
+script = ExtResource("3_sk1ie")
+resource = ExtResource("5_kx88l")
+weighted = Array[ExtResource("4_4fxn7")]([SubResource("Resource_mh218"), SubResource("Resource_wsudu")])
+
+[sub_resource type="Resource" id="Resource_6wg54"]
+script = ExtResource("6_qeoxb")
+progress_min = 0.6
+progress_max = 1.4
+target_progress = 5.0
+final_result = SubResource("Resource_kr7ln")
+
+[node name="TabContainer" type="TabContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_e5e3c")
+
+[node name="Work" type="HFlowContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GatherWood" parent="Work" instance=ExtResource("1_rm5tb")]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+display_name = "Gather Wood"
+results = Array[Resource("res://widgets/result.gd")]([SubResource("Resource_rnliu"), SubResource("Resource_6wg54")])
+percent_of_day_taken = 10.0
+exclusive = true
+
+[node name="Buildings" type="HFlowContainer" parent="."]
+visible = false
+layout_mode = 2
+script = ExtResource("8_hb0gw")
+
+[node name="Campfire" parent="Buildings" instance=ExtResource("9_5ovvh")]
+layout_mode = 2
+display_name = "Campfire"
+building = ExtResource("10_clthi")
+percent_of_day_taken = 40.0

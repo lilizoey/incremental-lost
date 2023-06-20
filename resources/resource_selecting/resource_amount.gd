@@ -82,3 +82,7 @@ func _filter_positive(arr: Array[ItemResource]) -> Array[ItemResource]:
 	return arr.filter(
 		func (resource: ItemResource): return resource.amount > 0.0
 	)
+
+# Return a string representing this amount for usage in costs.
+func as_cost() -> String:
+	return "## undefined ##"

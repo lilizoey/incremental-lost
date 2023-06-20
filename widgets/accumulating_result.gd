@@ -7,9 +7,9 @@ class_name AccumulatingResult extends Result
 
 var progress: float = 0.0
 
-func perform():
+func perform(multiplier: float = 1.0):
 	var to_progress = randf_range(progress_min, progress_max)
 	progress += to_progress
 	if progress >= target_progress:
 		progress -= target_progress
-		final_result.perform()
+		final_result.perform(multiplier)

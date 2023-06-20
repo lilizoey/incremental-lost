@@ -21,6 +21,7 @@ Resources="*res://resources/resources.tscn"
 TimeManager="*res://time/time_manager.gd"
 WorkManager="*res://widgets/work_manager.gd"
 DebugManager="*res://debug/debug_manager.gd"
+TagsManager="*res://tags_manager.gd"
 
 [gui]
 

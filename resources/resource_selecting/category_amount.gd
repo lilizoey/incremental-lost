@@ -9,3 +9,8 @@ func _get_resources() -> Array[ItemResource]:
 		return []
 	return Resources.get_resources_from_category(category)
 
+func as_cost() -> String:
+	if category:
+		return "any %s" % [category.display_name]
+	else:
+		return super.as_cost()

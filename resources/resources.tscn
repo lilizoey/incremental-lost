@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dp35b46ter3j8"]
+[gd_scene load_steps=22 format=3 uid="uid://dp35b46ter3j8"]
 
 [ext_resource type="Script" path="res://resources/resources.gd" id="1_js2jy"]
 [ext_resource type="Resource" uid="uid://bxmfnu1sy7o61" path="res://resources/item_resources/food_category.tres" id="2_ajwkc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://euliv8t7okig" path="res://resources/item_resources/food/mushroom.tres" id="5_misqh"]
 [ext_resource type="Resource" uid="uid://bq5unia4u6r6t" path="res://resources/item_resources/raw_material/wild_plant.tres" id="6_34c8m"]
 [ext_resource type="Resource" uid="uid://bw55ecitmcvbu" path="res://resources/item_resources/refuse_category.tres" id="6_ikt6y"]
+[ext_resource type="Resource" uid="uid://ccyo5rlayuovo" path="res://resources/item_resources/environment_category.tres" id="7_n1g4n"]
 [ext_resource type="Resource" uid="uid://d31pnrugxmnaj" path="res://resources/item_resources/food/edible_plant.tres" id="7_n6b8a"]
 [ext_resource type="Resource" uid="uid://ehsgljyqi8n4" path="res://resources/item_resources/refuse/weed.tres" id="8_wcqtj"]
 [ext_resource type="Resource" uid="uid://dj6bqls5wyddj" path="res://resources/item_resources/raw_material/clay.tres" id="9_075kj"]
@@ -19,12 +20,14 @@
 [ext_resource type="Resource" uid="uid://bh8pxfl65ept" path="res://resources/item_resources/food/packaged_meal.tres" id="12_n2rgo"]
 [ext_resource type="Resource" uid="uid://dk8agbrvossvi" path="res://resources/item_resources/people/human.tres" id="13_uvcta"]
 [ext_resource type="Resource" uid="uid://4ly57y288fns" path="res://resources/item_resources/raw_material/stick.tres" id="14_kasmr"]
+[ext_resource type="Resource" uid="uid://xbfvd57sey4x" path="res://resources/item_resources/environment/heat.tres" id="21_13ks2"]
 
 [node name="Resources" type="Node"]
 script = ExtResource("1_js2jy")
-categories = Array[Resource("res://resources/item_resources/resource_category.gd")]([ExtResource("2_ajwkc"), ExtResource("3_at01o"), ExtResource("4_b1atg"), ExtResource("5_dvw5b"), ExtResource("6_ikt6y")])
+categories = Array[Resource("res://resources/item_resources/resource_category.gd")]([ExtResource("2_ajwkc"), ExtResource("3_at01o"), ExtResource("4_b1atg"), ExtResource("5_dvw5b"), ExtResource("6_ikt6y"), ExtResource("7_n1g4n")])
 category_food = Array[Object]([ExtResource("7_n6b8a"), ExtResource("4_e5y1j"), ExtResource("5_misqh"), ExtResource("12_n2rgo")])
 category_material = Array[Object]([ExtResource("11_3xtvo"), ExtResource("10_2g7fu")])
 category_people = Array[Object]([ExtResource("13_uvcta")])
 category_raw_material = Array[Object]([ExtResource("9_075kj"), ExtResource("2_nwqfe"), ExtResource("14_kasmr"), ExtResource("3_8nqdy"), ExtResource("6_34c8m")])
 category_refuse = Array[Object]([ExtResource("8_wcqtj")])
+category_environment = Array[Object]([ExtResource("21_13ks2")])

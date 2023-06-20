@@ -4,9 +4,8 @@
 [ext_resource type="Script" path="res://time/day_counter.gd" id="1_vgbjy"]
 
 [node name="TimeTracker" type="HBoxContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 82.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 

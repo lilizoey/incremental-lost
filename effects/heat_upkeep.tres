@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2h4llshc2y1y"]
+
+[ext_resource type="Script" path="res://effects/heat_upkeep.gd" id="1_v8iqf"]
+
+[resource]
+script = ExtResource("1_v8iqf")

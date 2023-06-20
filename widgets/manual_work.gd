@@ -1,4 +1,4 @@
-@tool extends MarginContainer
+@tool extends PanelContainer
 
 @export var display_name: String = "":
 	set(new_name):
@@ -20,6 +20,8 @@ var active: bool = false
 var time_progress: float = 0.0
 
 func _ready():
+	if Engine.is_editor_hint():
+		return
 	time_taken_absolute = (percent_of_day_taken / 100.0) * TimeManager.DAY_LENGTH
 	TimeManager.time_changed.connect(progress)
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://xbfvd57sey4x"]
+
+[ext_resource type="Resource" uid="uid://ccyo5rlayuovo" path="res://resources/item_resources/environment_category.tres" id="1_xbrp4"]
+[ext_resource type="Script" path="res://resources/item_resources/item_resource.gd" id="2_ex06e"]
+
+[resource]
+script = ExtResource("2_ex06e")
+display_name = "Heat"
+name = "heat"
+description = ""
+amount = 100.0
+category = ExtResource("1_xbrp4")
+tags = {}
+unlocked = false
+auto_unlock = true
+auto_unlock_at = 80.0
+auto_unlock_minimum = false
+has_maximum = false

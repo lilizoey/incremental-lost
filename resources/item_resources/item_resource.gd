@@ -5,51 +5,120 @@ extends Resource
 @export var display_name: String = ""
 @export var name: String = ""
 @export_multiline var description: String = ""
-@export var unlocked: bool = false
-@export var auto_unlock: bool = true:
-	set(new_auto):
-		auto_unlock = new_auto
-		notify_property_list_changed()
-var auto_unlock_at: float = 1.0
 @export var amount: float = 0.0:
 	set(new_amount):
 		if new_amount < 0.0 and not may_be_negative():
 			amount = 0.0
 		else:
 			amount = new_amount
-@export var category: ResourceCategory:
-	set(new_category):
-		category = new_category
+@export var category: ResourceCategory
+
+## unlocking
+var unlocked: bool = false:
+	set(new_unlocked):
+		unlocked = new_unlocked
 		notify_property_list_changed()
+# if unlocked is false
+var auto_unlock: bool = true:
+	set(new_auto):
+		auto_unlock = new_auto
+		notify_property_list_changed()
+# if auto unlock is true
+var auto_unlock_at: float = 1.0
+var auto_unlock_minimum: bool = true
+
+## maximum
+var has_maximum: bool = false:
+	set(new_has):
+		has_maximum = new_has
+		notify_property_list_changed()
+# if has_maximum is true
+var maximum_amount: float = 1.0
 
 # String -> float
 var daily_expected_effects: Dictionary = {}
 
-var nutrition: float = 0.0
-
 @export var tags: Dictionary = {}
+
+func is_unlocked() -> bool:
+	if unlocked:
+		return true
+	
+	if not auto_unlock:
+		return false
+	
+	if auto_unlock_minimum:
+		return amount >= auto_unlock_at
+	else:
+		return amount <= auto_unlock_at
+	
 
 func _get_property_list():
 	var properties: Array[Dictionary] = []
 	
-	if category and category.internal_name == "food":
+	properties.append({
+		"name" = "unlocked",
+		"type" = TYPE_BOOL,
+		"usage" = PROPERTY_USAGE_DEFAULT
+	})
+	
+	if not unlocked:
 		properties.append({
-			"name" = "nutrition",
+			"name" = "auto_unlock",
+			"type" = TYPE_BOOL,
+			"usage" = PROPERTY_USAGE_DEFAULT
+		})
+		
+	if not unlocked and auto_unlock:
+		properties.append({
+			"name" = "auto_unlock_at",
+			"type" = TYPE_FLOAT,
+			"usage" = PROPERTY_USAGE_DEFAULT
+		})
+		properties.append({
+			"name" = "auto_unlock_minimum",
+			"type" = TYPE_BOOL,
+			"usage" = PROPERTY_USAGE_DEFAULT
+		})
+	
+	properties.append({
+		"name" = "has_maximum",
+		"type" = TYPE_BOOL,
+		"usage" = PROPERTY_USAGE_DEFAULT
+	})
+	
+	if has_maximum:
+		properties.append({
+			"name" = "maximum_amount",
 			"type" = TYPE_FLOAT,
 			"usage" = PROPERTY_USAGE_DEFAULT
 		})
 	
-	if auto_unlock:
-		properties.append({
-			"name" = "auto_unlock_at",
-			"type" = TYPE_INT,
-			"usage" = PROPERTY_USAGE_DEFAULT,
-		})
-	
 	return properties
 
-func is_unlocked() -> bool:
-	return unlocked or (auto_unlock and amount >= auto_unlock_at)
+func _property_can_revert(property):
+	if property in [
+		"unlocked", 
+		"auto_unlock", 
+		"auto_unlock_at", 
+		"auto_unlock_minimum", 
+		"has_maximum", 
+		"maximum_amount"
+	]:
+		return true
+
+func _property_get_revert(property):
+	match property:
+		"unlocked","has_maximum":
+			return false
+		"auto_unlock","auto_unlock_minimum":
+			return true
+		"auto_unlock_at":
+			return 1.0
+		"maximum_amount":
+			return 100.0
+	
+
 
 # Try to remove an amount from this resource.
 #

@@ -8,11 +8,13 @@ script = ExtResource("2_15brn")
 display_name = "Herbs"
 name = "herb"
 description = ""
-unlocked = false
-auto_unlock = true
-amount = 0
+amount = 0.0
 category = ExtResource("1_smf2w")
-upkeep = null
 tags = {
 "health": 0.1
 }
+unlocked = false
+auto_unlock = true
+auto_unlock_at = 1.0
+auto_unlock_minimum = true
+has_maximum = false
